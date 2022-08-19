@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function Weather(){
     function showTemperature(response){
-        alert(`It is currently ${Math.round(response.data.main.temp)} degrees Celcius in New York`)
+        alert(`It is currently ${Math.round(response.data.main.temp)} degrees celcius in New York`)
     }
     
     let urlKey = `05a453d2c06a99051e321b8b98d3ef67`;
