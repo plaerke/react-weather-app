@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+body {
+    background-color: #ffe7e0;
+    font-family: "Manrope", sans-serif;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ec6e4c;
+    position: relative;
+    top: 4px;
+}
+
+h3 {
+    color: #ec6e4c;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 20px;
+    color: #ec6e4c;
+}
+
+hr {
+    margin: 10px 0px 3px 0px;
+}
+
+.body-box {
+    background-color: white;
+    width: 700px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 40px 60px;
+}
+
+.search-button {
+    padding: 6px 12px;
+    background-color: white;
+    border: solid 1px #ec6e4c;
+    border-radius: 4px;
+    transition: all 150ms ease-in-out;
+    position: relative;
+    left: -14px;
+}
+
+.search-button:hover {
+    background-color: #ec6e4c;
+    color: white;
+}
+
+.current-location-button {
+    position: relative;
+    left: 8px;
+    background-color: #ec6e4c;
+    color: white;
+    line-height: 24px;
+    font-size: 14px;
+    width: 160px;
+    transition: all 150ms ease-in-out;
+}
+
+.current-location-button:hover {
+    background: #ffe7e0;
+    border-color: #ec6e4c;
+    color: #606060;
+}
+
+.city-result {
+    margin-top: 50px;
+}
+
+.weather-icon {
+    position: relative;
+    top: -10px;
+    right: -6px;
+}
+
+.temp-wind {
+    position: relative;
+    top: 6px;
+}
+
+.only-temp {
+    font-size: 36px;
+    position: relative;
+    left: -2px;
+    line-height: 44px;
+}
+
+.current-temperature {
+    position: relative;
+    left: -13px;
+}
+
+.celsius-temperature {
+    text-decoration: none;
+}
+
+.fahrenheit-temperature {
+    text-decoration: none;
+}
+
+.units .active {
+    color: black;
+    text-decoration: none;
+    cursor: default;
+}
+
+.condition-and-wind {
+    font-size: 13px;
+}
+
+.condition-and-wind strong {
+    position: relative;
+    left: -12px;
+}
+
+.date-time {
+    font-size: 12px;
+    color: gray;
+    text-align: left;
+    position: relative;
+    top: 0px;
+}
+
+.forecast-boxes {
+    padding: 4px;
+}
+
+.forecast strong {
+    color: black;
+}
+
+.next-days {
+    border: solid 1px #f8ebe6;
+    border-radius: 4px;
+    padding: 15px 5px;
+    margin: 7px 0px;
+    text-align: center;
+    color: gray;
+    background: linear-gradient(109.6deg,
+            rgb(223, 234, 247) 11.2%,
+            rgb(244, 248, 252) 91.1%);
+    transition: all 150ms ease-in-out;
+}
+
+.next-days:hover {
+    background-color: #fcf2ef;
+    border-color: #fcf2ef;
+    color: #606060;
+}
+
+.low-temp {
+    font-weight: 200;
+}
+
+.code-link {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: gray;
+}
+
+.code-link-github {
+    color: #ec6e4c;
+}
