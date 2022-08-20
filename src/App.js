@@ -7,7 +7,7 @@ function App() {
       <Weather />
        <p className="code-link">
         <a
-          href="https://github.com/plaerke/weather-app"
+          href="https://github.com/plaerke/react-weather-app"
           target="_blank"
           rel="noreferrer"
           className="code-link-github"
