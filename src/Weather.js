@@ -1,6 +1,8 @@
 import React from "react";
 import "./Weather.css";
 import Forecast from "./Forecast";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function Weather() {
   let weatherData = {
@@ -17,67 +19,65 @@ export default function Weather() {
     <div className="Weather">
       <div className="body-box">
         <header>
-          <div className="row">
+          <Row className="row">
             <h1>What's the weather like in...</h1>
-          </div>
+          </Row>
           <form>
-            <div className="row">
-              <div className="col-7">
+            <Row className="row">
+              <Col xs={7}>
                 <input
                   type="search"
                   placeholder="Enter a city here (e.g. Amsterdam)"
                   autoComplete="off"
                   className="form-control"
                 />
-              </div>
-              <div className="col-1">
+              </Col>
+              <Col xs={1}>
                 <input type="submit" value="🔍" className="search-button" />
-              </div>
-              <div className="col-3">
+              </Col>
+              <Col xs={3}>
                 <button className="search-button current-location-button">
                   Find current location
                 </button>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </form>
         </header>
         <div className="city-result">
           <h2>{weatherData.city}</h2>
-          <div className="row">
-            <div className="row">
-              <div className="col-3 weather-icon">
+          <Row className="row">
+            <Row className="row">
+              <Col xs={3} className="weather-icon">
                 <img
                   src={weatherData.imgUrl}
                   alt={weatherData.condition}
                   width="110"
                 />
-              </div>
-              <div className="col-9 temp-wind">
-                <div className="row">
+              </Col>
+              <Col xs={9} className="temp-wind">
+                <Row className="row">
                   <span className="current-temperature">
                     <span className="temp">{weatherData.temperature}</span>
                     °C
                   </span>
-                </div>
+                  </Row>
+              </Col>                
                 <div className="condition-and-wind">
-                  <div className="row current-condition">
+                  <Row className="row current-condition">
                     <strong> {weatherData.condition} </strong>
-                  </div>
-                  <div className="row current-wind">
+                  </Row>
+                  <Row className="row current-wind">
                     Wind Speed: {weatherData.windSpeed} m/s
-                  </div>
+                  </Row>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="forecast"> 
-            <div className="col-2 forecast-boxes">
+            </Row>
+          </Row>
+          <Row className="forecast"> 
               <Forecast day="Sunday"/>
               <Forecast day="Monday"/>
               <Forecast day="Tuesday"/>
               <Forecast day="Wednesday"/>
-            </div>
-          </div>
+          </Row>
         </div>
         <div className="date-time">
           Last updated on {weatherData.day} at {weatherData.time}
