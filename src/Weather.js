@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Weather.css";
 import Forecast from "./Forecast";
+import axios from "axios";
+import { BallTriangle } from 'react-loader-spinner'
+
 
 export default function Weather() {
-  let weatherData = {
-    city: "New York",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-    day: "Saturday",
-    time: "18:07",
-    temperature: 17,
-    condition: "Windy",
-    windSpeed: 7
-  };
-  
+    let day = "Saturday";
+    let time = "18:07"; 
+    let [weatherData, setWeatherData] = useState({ready: false});
+    
+    function handleSubmit(response){
+    setWeatherData = {
+    ready: true,
+    imgUrl: response.data.weather[0].icon,
+    temperature: Math.round(response.data.main.temp),
+    description: response.data.weather[0].description,
+    windSpeed: response.data.wind.speed
+  }
+};
+
+  if (weatherData.ready) {
   return (
     <div className="Weather">
       <div className="body-box">
@@ -48,7 +56,7 @@ export default function Weather() {
               <div className="col-3 weather-icon">
                 <img
                   src={weatherData.imgUrl}
-                  alt={weatherData.condition}
+                  alt={weatherData.description}
                   width="110"
                 />
               </div>
@@ -80,9 +88,26 @@ export default function Weather() {
           </div>
         </div>
         <div className="date-time">
-          Last updated on {weatherData.day} at {weatherData.time}
+          Last updated on {day} at {time}
         </div>
       </div>
       </div>
-  );
+  );}
+  else {
+    let city = "New York"
+    let apiKey = "05a453d2c06a99051e321b8b98d3ef67";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleSubmit);
+    return (<BallTriangle
+  height={100}
+  width={100}
+  radius={5}
+  color="#4fa94d"
+  ariaLabel="ball-triangle-loading"
+  wrapperClass={{}}
+  wrapperStyle=""
+  visible={true}
+  className="loader"
+/>)
+  }
 }
