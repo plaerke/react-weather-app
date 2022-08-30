@@ -129,3 +129,8 @@
 .code-link-github {
     color: #ec6e4c;
 }
+
+body {
+    background-color: #ffe7e0;
+    font-family: "Manrope", sans-serif;
+}

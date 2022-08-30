@@ -1,9 +1,11 @@
 import './App.css';
 import Weather from "./Weather";
+import "bootstrap/dist/css/bootstrap.css";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
+      <div className="container">
       <Weather />
        <p className="code-link">
         <a
@@ -17,7 +19,6 @@ function App() {
         <span> by Pernille Lærke Munk-Hansen </span>
       </p>
     </div>
+    </div>
   );
 }
-
-export default App;
