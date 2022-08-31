@@ -67,12 +67,9 @@
   left: -13px;
 }
 
-.celsius-temperature {
+.active-unit {
   text-decoration: none;
-}
-
-.fahrenheit-temperature {
-  text-decoration: none;
+  color: #7c9bc1;
 }
 
 .condition-and-wind {
