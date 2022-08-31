@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import "./Weather.css";
 import Forecast from "./Forecast";
 import axios from "axios";
-import { BallTriangle } from 'react-loader-spinner'
+import { BallTriangle } from 'react-loader-spinner';
+import FormattedDate from "./FormattedDate.js";
 
 
 export default function Weather() {
-    let day = "Saturday";
-    let time = "18:07"; 
     let [weatherData, setWeatherData] = useState({ready: false});
     
     function handleSubmit(response){
-    setWeatherData = {
+    setWeatherData({
     ready: true,
-    imgUrl: response.data.weather[0].icon,
+    imgUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     temperature: Math.round(response.data.main.temp),
     description: response.data.weather[0].description,
-    windSpeed: response.data.wind.speed
-  }
+    windSpeed: response.data.wind.speed,
+    date: new Date(response.data.dt * 1000),
+  })
 };
 
   if (weatherData.ready) {
@@ -68,8 +68,8 @@ export default function Weather() {
                   </span>
                   </div>
                 <div className="condition-and-wind">
-                  <div className="row current-condition">
-                    <strong> {weatherData.condition} </strong>
+                  <div className="row current-condition text-capitalize">
+                    <strong> {weatherData.description} </strong>
                   </div>
                   <div className="row current-wind">
                     Wind Speed: {weatherData.windSpeed} m/s
@@ -80,15 +80,15 @@ export default function Weather() {
           </div>
           <div className="forecast"> 
           <div className="row">
-              <Forecast day="Sunday"/>
-              <Forecast day="Monday"/>
-              <Forecast day="Tuesday"/>
-              <Forecast day="Wednesday"/>
+              <Forecast day="Sun"/>
+              <Forecast day="Mon"/>
+              <Forecast day="Tue"/>
+              <Forecast day="Wed"/>
               </div>
           </div>
         </div>
         <div className="date-time">
-          Last updated on {day} at {time}
+          <FormattedDate date={weatherData.date} />
         </div>
       </div>
       </div>
