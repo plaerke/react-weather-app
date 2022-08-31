@@ -5,19 +5,36 @@ import { BallTriangle } from 'react-loader-spinner';
 import WeatherInfo from "./WeatherInfo";
 
 
-export default function Weather() {
-    let [weatherData, setWeatherData] = useState({ready: false});
-    
-    function handleSubmit(response){
+export default function Weather(props) {
+    const [weatherData, setWeatherData] = useState({ready: false});
+    const [city, setCity] = useState(props.defaultCity);
+
+    function handleResponse(response){
     setWeatherData({
     ready: true,
     imgUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     temperature: Math.round(response.data.main.temp),
     description: response.data.weather[0].description,
-    windSpeed: response.data.wind.speed,
+    windSpeed: Math.round(response.data.wind.speed),
     date: new Date(response.data.dt * 1000),
+    city: city,
   })
 };
+
+function search(){
+ let apiKey = "05a453d2c06a99051e321b8b98d3ef67";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+}
+
+function handleSubmit(event){
+  event.preventDefault();
+  search(city);
+}
+
+function handleCityChange(event){
+setCity(event.target.value);
+}
 
   if (weatherData.ready) {
   return (
@@ -26,7 +43,7 @@ export default function Weather() {
           <div className="row">
             <h1>What's the weather like in...</h1>
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-7">
                 <input
@@ -34,6 +51,7 @@ export default function Weather() {
                   placeholder="Enter a city here (e.g. Amsterdam)"
                   autoComplete="off"
                   className="form-control"
+                  onChange={handleCityChange}
                 />
               </div>
               <div className="col-1">
@@ -51,20 +69,17 @@ export default function Weather() {
       </div>
   );}
   else {
-    let city = "New York"
-    let apiKey = "05a453d2c06a99051e321b8b98d3ef67";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleSubmit);
+    search();
     return (<BallTriangle
-  height={100}
-  width={100}
-  radius={5}
-  color="#4fa94d"
-  ariaLabel="ball-triangle-loading"
-  wrapperClass={{}}
-  wrapperStyle=""
-  visible={true}
-  className="loader"
-/>)
+      height={100}
+      width={100}
+      radius={5}
+      color="#4fa94d"
+      ariaLabel="ball-triangle-loading"
+      wrapperClass={{}}
+      wrapperStyle=""
+      visible={true}
+      className="loader"
+    />)
   }
 }

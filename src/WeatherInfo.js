@@ -4,7 +4,7 @@ import Forecast from "./Forecast.js";
 
 
 export default function WeatherInfo(props){
-    
+    console.log(props.data.city);
     return (<div className="WeatherInfo">
     <div className="city-result">
           <h2>{props.data.city}</h2>
