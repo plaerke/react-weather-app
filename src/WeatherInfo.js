@@ -1,21 +1,22 @@
 import React from "react";
 import FormattedDate from "./FormattedDate.js";
 import Forecast from "./Forecast.js";
+import WeatherIcon from "./WeatherIcon.js";
 
 
 export default function WeatherInfo(props){
-    console.log(props.data.city);
     return (<div className="WeatherInfo">
     <div className="city-result">
           <h2>{props.data.city}</h2>
           <div className="row">
             <div className="row">
               <div className="col-3 weather-icon">
-                <img
-                  src={props.data.imgUrl}
-                  alt={props.data.description}
-                  width="110"
-                />
+                  <WeatherIcon 
+                    code={props.data.icon} 
+                    alt={props.data.description} 
+                    width="110"
+                  />
+             
               </div>
               <div className="col-9 temp-wind">
                 <div className="row">

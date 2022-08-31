@@ -39,15 +39,20 @@
     margin-top: 50px;
 }
 
-.weather-icon {
+.WeatherInfo h2{
+    margin-bottom: 10px;
+}
+
+.WeatherIcon canvas {
     position: relative;
-    top: -10px;
-    right: -6px;
+    top: 9px;
+    left: 25px;
 }
 
 .temp-wind {
     position: relative;
-    top: 6px;
+    right: 10px;
+    margin-bottom: 20px;
 }
 
 .temp {
