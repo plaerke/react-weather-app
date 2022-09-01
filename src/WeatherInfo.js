@@ -37,10 +37,7 @@ export default function WeatherInfo(props) {
         </div>
         <div className="forecast">
           <div className="row">
-            <Forecast day="Sun" />
-            <Forecast day="Mon" />
-            <Forecast day="Tue" />
-            <Forecast day="Wed" />
+            <Forecast day="Sun" coord={props.data.coord} />
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ export default function Weather(props) {
       windSpeed: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
       city: city,
+      coord: response.data.coord,
     });
   }
 
