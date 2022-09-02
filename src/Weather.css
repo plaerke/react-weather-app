@@ -43,10 +43,16 @@
   margin-bottom: 10px;
 }
 
-.WeatherIcon canvas {
+.WeatherInfo .WeatherIcon canvas {
   position: relative;
   top: 9px;
   left: 25px;
+}
+
+.Forecast .WeatherIcon canvas {
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .temp-wind {

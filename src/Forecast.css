@@ -1,47 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 body {
-    background-color: #ffe7e0;
-    font-family: "Manrope", sans-serif;
+  background-color: #ffe7e0;
+  font-family: "Manrope", sans-serif;
 }
 
 h4 {
-    font-weight: 600;
-    font-size: 20px;
-    color: #ec6e4c;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ec6e4c;
 }
 
 hr {
-    margin: 10px 0px 3px 0px;
+  margin: 10px 0px 3px 0px;
 }
 
 .forecast-boxes {
-    padding: 4px;
+  padding: 4px;
 }
 
 .forecast strong {
-    color: black;
+  color: black;
 }
 
 .next-days {
-    border: solid 1px #f8ebe6;
-    border-radius: 4px;
-    padding: 15px 5px;
-    margin: 7px 0px;
-    text-align: center;
-    color: gray;
-    background: linear-gradient(109.6deg,
-            rgb(223, 234, 247) 11.2%,
-            rgb(244, 248, 252) 91.1%);
-    transition: all 150ms ease-in-out;
+  border: solid 1px #f8ebe6;
+  border-radius: 4px;
+  padding: 15px 5px;
+  margin: 7px 0px;
+  text-align: center;
+  color: gray;
+  background: linear-gradient(
+    109.6deg,
+    rgb(223, 234, 247) 11.2%,
+    rgb(244, 248, 252) 91.1%
+  );
+  transition: all 150ms ease-in-out;
 }
 
 .next-days:hover {
-    background-color: #fcf2ef;
-    border-color: #fcf2ef;
-    color: #606060;
+  background-color: #fcf2ef;
+  border-color: #fcf2ef;
+  color: #606060;
 }
 
 .low-temp {
-    font-weight: 200;
+  font-weight: 200;
+}
+
+.WeatherIcon canvas {
+  position: relative;
+  right: 10px;
+  bottom: 10 px;
 }
