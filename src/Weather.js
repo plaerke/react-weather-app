@@ -57,11 +57,6 @@ export default function Weather(props) {
               <div className="col-1">
                 <input type="submit" value="🔍" className="search-button" />
               </div>
-              <div className="col-3">
-                <button className="search-button current-location-button">
-                  Find current location
-                </button>
-              </div>
             </div>
           </form>
           <WeatherInfo data={weatherData} />

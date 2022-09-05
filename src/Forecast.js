@@ -27,8 +27,8 @@ export default function Forecast(props) {
   if (loaded) {
     return (
       <div className="Forecast">
-        <div className="col forecast-boxes">
-          <div className="next-days">
+        <div className="forecast-boxes">
+          <div className="row next-days">
             {forecastData.map(function (dailyForecast, index) {
               if (index < 4) {
                 return (
